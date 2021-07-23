@@ -87,7 +87,7 @@ export default function PizzaForm(props) {
                     value={values.special}
                 />
             </label>
-            <button disabled={disabled}>submit</button>
+            <button id="submitBtn" disabled={disabled}>submit</button>
         </form>
     )
 }

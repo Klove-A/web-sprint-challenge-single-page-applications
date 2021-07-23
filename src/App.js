@@ -65,9 +65,12 @@ const App = () => {
   
   return (
     <div>
-      <h1>Lambda Eats</h1>
-      <p>Order pizza here</p>
-    
+      <nav>
+        <h1>Lambda Eats</h1>
+        <div className="nav-links">
+          <Link to="/" style={{textDecoration: "none", color: "#4F4F4F"}}>Home</Link>
+        </div>
+      </nav>
     <PizzaForm
       values={formValues}
       change={inputChange}
