@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Route, Link, Switch, Redirect } from "react-router-dom"
-import Home from "./components/Home"
-import PizzaForm from "./components/PizzaForm"
+import { Route, Link, Switch, Redirect } from "react-router-dom";
+import { reach } from "yup";
+import schema from "./validation/formSahema";
+import Home from "./components/Home";
+import PizzaForm from "./components/PizzaForm";
 
 const initialFormValues = {
   name: "",
@@ -33,8 +35,15 @@ const App = () => {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
 
+  const validate = (name, value) => {
+    reach(schema, name)
+      .validate(value)
+      .then(() => setFormErrors({ ...formErrors, [name]: '' }))
+      .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0]}))
+  }
+
   const inputChange = (name, value) => {
-    // validate(name, value)
+    validate(name, value)
     setFormValues({
       ...formValues,
       [name]: value
