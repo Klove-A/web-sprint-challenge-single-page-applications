@@ -19,11 +19,10 @@ export default function PizzaForm(props) {
         <form id= "pizza-form" onSubmit={onSubmit}>
 
             <div className='errors'>
-            {/* 🔥 RENDER THE VALIDATION ERRORS HERE */}
-            <div>{errors.username}</div>
-            <div>{errors.email}</div>
-            <div>{errors.role}</div>
-            <div>{errors.civil}</div>
+                <div>{errors.username}</div>
+                <div>{errors.email}</div>
+                <div>{errors.role}</div>
+                <div>{errors.civil}</div>
             </div>
 
             <label id="name-input">Name
@@ -31,7 +30,7 @@ export default function PizzaForm(props) {
                     name="name"
                     type="text"
                     onChange={onchange}
-                    value={vaules.name}
+                    value={values.name}
                 />
             </label>
 
@@ -39,7 +38,7 @@ export default function PizzaForm(props) {
                 <select
                     name="size"
                     onChange={onChange}
-                    value={vaules.size}
+                    value={values.size}
                 >
                     <option value="">- Select a size -</option>
                     <option value="XS">XS</option>
@@ -55,7 +54,7 @@ export default function PizzaForm(props) {
                     name="topping1"
                     type="checkbox"
                     onChange={onChange}
-                    value={vaules.topping1}
+                    value={values.topping1}
                 />
             </label>
             <label>Ham
@@ -63,7 +62,7 @@ export default function PizzaForm(props) {
                     name="topping2"
                     type="checkbox"
                     onChange={onChange}
-                    value={vaules.topping2}
+                    value={values.topping2}
                 />
             </label>
             <label>Mushrooms
@@ -71,7 +70,7 @@ export default function PizzaForm(props) {
                     name="topping3"
                     type="checkbox"
                     onChange={onChange}
-                    value={vaules.topping3}
+                    value={values.topping3}
                 />
             </label>
             <label>Pineapple
@@ -79,7 +78,7 @@ export default function PizzaForm(props) {
                     name="topping4"
                     type="checkbox"
                     onChange={onChange}
-                    value={vaules.topping4}
+                    value={values.topping4}
                 />
             </label>
             <label id="special-text">Special instructions
@@ -87,7 +86,7 @@ export default function PizzaForm(props) {
                     name="special-text"
                     type="text"
                     onchange={onChange}
-                    value={vaules.special}
+                    value={values.special}
                 />
             </label>
             <button disabled={disabled}>submit</button>

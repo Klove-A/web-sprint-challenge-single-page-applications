@@ -11,9 +11,46 @@ const initialFormValues = {
   topping3: false,
   topping4: false,
   special: "",
-}
+};
+
+const initialFormErrors = {
+  name: "",
+  size: "",
+  topping1: "",
+  topping2: "",
+  topping3: "",
+  topping4: "",
+  special: "",
+};
+
+const initialPizza = [];
+const initialDisabled = true;
 
 const App = () => {
+
+  const [pizza, setPizza] = useState(initialPizza);
+  const [formValues, setFormValues] = useState(initialFormValues); 
+  const [formErrors, setFormErrors] = useState(initialFormErrors);
+  const [disabled, setDisabled] = useState(initialDisabled);
+
+  const inputChange = (name, value) => {
+    // validate(name, value)
+    setFormValues({
+      ...formValues,
+      [name]: value
+    })
+  }
+
+  const formSubmit = () => {
+    const newPizza = {
+      name: formValues.name.trim(),
+      size: formValues.size,
+      topping: ["topping1", "topping2", "topping3", "topping4"].filter(top => formValues[top]),
+      special: formValues.special.trim()
+    }
+    return (newPizza)
+  }
+  
   return (
     <div>
       <h1>Lambda Eats</h1>
