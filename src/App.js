@@ -54,7 +54,7 @@ const App = () => {
       name: formValues.name.trim(),
       size: formValues.size,
       topping: ["topping1", "topping2", "topping3", "topping4"].filter(top => formValues[top]),
-      special: formValues.special.trim()
+      special: formValues.special,
     }
     return (newPizza)
   }
