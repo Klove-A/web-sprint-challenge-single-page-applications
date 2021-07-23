@@ -55,7 +55,11 @@ export default function PizzaForm(props) {
                 />
             </label>
             <label id="special-text">Special instructions
-                
+                <input
+                    name="special-text"
+                    type="text"
+                    onchange={onChange}
+                />
             </label>
         </form>
     )
