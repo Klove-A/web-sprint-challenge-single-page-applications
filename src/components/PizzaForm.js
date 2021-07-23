@@ -1,9 +1,31 @@
 import React from "react"
 
 export default function PizzaForm(props) {
+    
+    const {values, submit, change, disabled, errors} = props;
+
+    const onSubmit = evt => {
+        evt.preventDefault()
+        submit()
+    };
+
+    const onChange = evt => {
+        const { name, value, type, checked } = evt.target;
+        const valueToUse = type === 'checkbox' ? checked : value;
+        change(name, valueToUse);
+    };
 
     return (
-        <form id= "pizza-form">
+        <form id= "pizza-form" onSubmit={onSubmit}>
+
+            <div className='errors'>
+            {/* 🔥 RENDER THE VALIDATION ERRORS HERE */}
+            <div>{errors.username}</div>
+            <div>{errors.email}</div>
+            <div>{errors.role}</div>
+            <div>{errors.civil}</div>
+            </div>
+
             <label id="name-input">Name
                 <input
                     name="name"
@@ -68,6 +90,7 @@ export default function PizzaForm(props) {
                     value={vaules.special}
                 />
             </label>
+            <button disabled={disabled}>submit</button>
         </form>
     )
 }

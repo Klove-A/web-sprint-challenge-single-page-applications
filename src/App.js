@@ -15,10 +15,17 @@ const initialFormValues = {
 
 const App = () => {
   return (
-    <>
+    <div>
       <h1>Lambda Eats</h1>
       <p>You can remove this code and create your own header</p>
-    </>
+    </div>,
+    <PizzaForm
+      values={formValues}
+      change={inputChange}
+      submit={formSubmit}
+      disabled={disabled}
+      errors={formErrors}
+    />
   );
 };
 export default App;
