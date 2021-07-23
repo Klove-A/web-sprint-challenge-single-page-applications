@@ -10,11 +10,11 @@ describe("pizza app",() => {
     const orderBtn = () => cy.get('button[id="order-button"]');
 
     beforeEach(()=>{
-        cy.visit("http://localhost:3000")
+        cy.visit("http://localhost:3000/pizzaform")
     });
 
     it("check if the right elements are showing",() => {
-        nameInput().should('exist')
+        // nameInput().should('exist')
         sizeSelect().should('exist')
         topping1Input().should('exist')
         topping2Input().should('exist')

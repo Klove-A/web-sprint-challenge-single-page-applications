@@ -66,7 +66,7 @@ const App = () => {
     <div>
       <nav>
         <h1>Lambda Eats</h1>
-        <div className="nav-links">
+        <div className="nav-link">
           <Link to="/" style={{textDecoration: "none", color: "#4F4F4F"}}>Home</Link>
         </div>
       </nav>
