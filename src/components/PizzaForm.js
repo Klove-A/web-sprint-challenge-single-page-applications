@@ -9,6 +9,7 @@ export default function PizzaForm(props) {
                     name="name"
                     type="text"
                     onChange={onchange}
+                    value={vaules.name}
                 />
             </label>
 
@@ -16,6 +17,7 @@ export default function PizzaForm(props) {
                 <select
                     name="size"
                     onChange={onChange}
+                    value={vaules.size}
                 >
                     <option value="">- Select a size -</option>
                     <option value="XS">XS</option>
@@ -31,6 +33,7 @@ export default function PizzaForm(props) {
                     name="topping1"
                     type="checkbox"
                     onChange={onChange}
+                    value={vaules.topping1}
                 />
             </label>
             <label>Ham
@@ -38,6 +41,7 @@ export default function PizzaForm(props) {
                     name="topping2"
                     type="checkbox"
                     onChange={onChange}
+                    value={vaules.topping2}
                 />
             </label>
             <label>Mushrooms
@@ -45,6 +49,7 @@ export default function PizzaForm(props) {
                     name="topping3"
                     type="checkbox"
                     onChange={onChange}
+                    value={vaules.topping3}
                 />
             </label>
             <label>Pineapple
@@ -52,6 +57,7 @@ export default function PizzaForm(props) {
                     name="topping4"
                     type="checkbox"
                     onChange={onChange}
+                    value={vaules.topping4}
                 />
             </label>
             <label id="special-text">Special instructions
@@ -59,6 +65,7 @@ export default function PizzaForm(props) {
                     name="special-text"
                     type="text"
                     onchange={onChange}
+                    value={vaules.special}
                 />
             </label>
         </form>
