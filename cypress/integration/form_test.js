@@ -14,7 +14,7 @@ describe("pizza app",() => {
     });
 
     it("check if the right elements are showing",() => {
-        // nameInput().should('exist')
+        nameInput().should('exist')
         sizeSelect().should('exist')
         topping1Input().should('exist')
         topping2Input().should('exist')
@@ -22,5 +22,29 @@ describe("pizza app",() => {
         topping4Input().should('exist')
         specialInput().should('exist')
         orderBtn().should('exist')
+    });
+    it("checking the name&special input and if i can add text",() => {
+        nameInput()
+          .should("have.value","")
+          .type("Greg")
+          .should("have.value","Greg")
+        specialInput()
+          .should("have.value","")
+          .type("no cheese")
+          .should("have.value","no cheese")
+    });
+
+    it("checking topping checkboxs",() => {
+        topping1Input().click()
+        topping2Input().click()
+        topping4Input().click()
+    });
+
+    it("check to see if i can submit form",() => {
+        nameInput().type("Greg")
+        sizeSelect().select("L")
+        topping2Input().click()
+        topping4Input().click()
+        orderBtn().click()
     });
 })
