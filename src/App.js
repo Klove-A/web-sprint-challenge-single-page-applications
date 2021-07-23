@@ -31,7 +31,6 @@ const initialDisabled = true;
 
 const App = () => {
 
-  const [pizza, setPizza] = useState(initialPizza);
   const [formValues, setFormValues] = useState(initialFormValues); 
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
