@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Route, Link, Switch, Redirect } from "react-router-dom";
+import { Route, Link, Switch, Redirect, useHistory } from "react-router-dom";
 import { reach } from "yup";
-import schema from "./validation/formSahema";
+import schema from "./validation/formSchema";
 import Home from "./components/Home";
 import PizzaForm from "./components/PizzaForm";
+import Confirmation from "./components/Confirmation";
 
 const initialFormValues = {
   name: "",
@@ -35,6 +36,8 @@ const App = () => {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
 
+  const history = useHistory()
+
   const validate = (name, value) => {
     reach(schema, name)
       .validate(value)
@@ -45,18 +48,14 @@ const App = () => {
   const inputChange = (name, value) => {
     validate(name, value)
     setFormValues({
+      ...formValues,
       [name]: value
     })
+    console.log(formValues);
   }
 
   const formSubmit = () => {
-    const newPizza = {
-      name: formValues.name.trim(),
-      size: formValues.size,
-      topping: ["topping1", "topping2", "topping3", "topping4"].filter(top => formValues[top]),
-      special: formValues.special,
-    }
-    return (newPizza)
+    history.push("/confirmation")
   }
 
   useEffect(() => {
@@ -71,13 +70,25 @@ const App = () => {
           <Link to="/" style={{textDecoration: "none", color: "#4F4F4F"}}>Home</Link>
         </div>
       </nav>
-    <PizzaForm
-      values={formValues}
-      change={inputChange}
-      submit={formSubmit}
-      disabled={disabled}
-      errors={formErrors}
-    />
+
+      <Switch>
+        <Route path="/pizzaform">
+          <PizzaForm
+            values={formValues}
+            change={inputChange}
+            submit={formSubmit}
+            disabled={disabled}
+            errors={formErrors}
+          />
+        </Route>
+        <Route path="/confirmation">
+          <Confirmation/>
+        </Route>
+        <Route path="/home"> 
+          <Home/>
+        </Route>
+        <Redirect to="home"/>
+      </Switch>
     </div>
   );
 };
