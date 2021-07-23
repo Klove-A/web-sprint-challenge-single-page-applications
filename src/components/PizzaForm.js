@@ -19,10 +19,8 @@ export default function PizzaForm(props) {
         <form id= "pizza-form" onSubmit={onSubmit}>
 
             <div className='errors'>
-                <div>{errors.username}</div>
-                <div>{errors.email}</div>
-                <div>{errors.role}</div>
-                <div>{errors.civil}</div>
+                <div>{errors.name}</div>
+                <div>{errors.size}</div>
             </div>
 
             <label id="name-input">Name
