@@ -58,12 +58,16 @@ const App = () => {
     }
     return (newPizza)
   }
+
+  useEffect(() => {
+    schema.isValid(formValues).then(valid => setDisabled(!valid))
+  }, [formValues])
   
   return (
     <div>
       <h1>Lambda Eats</h1>
-      <p>You can remove this code and create your own header</p>
-    </div>,
+      <p>Order pizza here</p>
+    
     <PizzaForm
       values={formValues}
       change={inputChange}
@@ -71,6 +75,7 @@ const App = () => {
       disabled={disabled}
       errors={formErrors}
     />
+    </div>
   );
 };
 export default App;

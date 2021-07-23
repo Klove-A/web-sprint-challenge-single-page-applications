@@ -27,7 +27,7 @@ export default function PizzaForm(props) {
                 <input
                     name="name"
                     type="text"
-                    onChange={onchange}
+                    onChange={onChange}
                     value={values.name}
                 />
             </label>
@@ -83,7 +83,7 @@ export default function PizzaForm(props) {
                 <input
                     name="special-text"
                     type="text"
-                    onchange={onChange}
+                    onChange={onChange}
                     value={values.special}
                 />
             </label>
